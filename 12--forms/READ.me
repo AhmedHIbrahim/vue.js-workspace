@@ -1,0 +1,15 @@
+HANDS-ON:
+
+v-model:
+
+-- it is a short-hand of using 
+---- @input='setUserName' :value='userName'
+
+-- v-model.number
+-- v-model.trim : no trailing or leading spaces
+-- v-model.lazy 
+
+--- using v-model on a component,
+---- vue pass another prop under the hood which you have to expect ( :model-value='' )
+---- so, add following to your component script >> 
+->->- props: ["modelValue"], emits: ["update:modelValue"],

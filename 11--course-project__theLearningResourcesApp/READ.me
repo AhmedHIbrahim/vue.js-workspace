@@ -1,0 +1,64 @@
+Hands-on:
+
+------------------------------------------------
+
+- data
+
+------------------------------------------------
+
+- methods
+
+------------------------------------------------
+
+- computed
+---- instead of writing logic of styling, displaying, etc. in the template tag
+---- you can add computed into script tag 
+----- e.g. export default { computed: {isValidInput(){...your-checkup-logic}}}
+
+------------------------------------------------
+
+- props
+---- in script props, they can added in 2 ways:
+-----  props:['id'] or props:{id: {type:String, required: true}}
+
+------------------------------------------------
+
+- components
+--- components can be passed globally (in the main.js), so they will be available app-wide.
+---- or locally, import XX inside of script tag of specific vue component
+----- then add XX to components key in the script tag 
+
+------------------------------------------------
+
+- emits
+--- add emits in the script tag of a component (e.g. XX component).
+---- so that, you can pass a handler e.g. <XX @deleteXX='...'></XX>
+
+------------------------------------------------
+
+- slot & named-slot & template
+--- slot naming: 
+----- v-slot:default or #default
+----- v-slot:<name> or #<name>
+
+------------------------------------------------
+
+- provide & inject
+--- if you want to share data, or methods to a child, and its children,
+---- you add provide tag to the parent. e.g. provide:['resources']
+----- then add inject in the child script tag. 
+------ e.g. inject:['resources'] and use resources in the child
+
+------------------------------------------------
+
+- teleport
+--- add component under body 
+---- e.g. <teleport to='body'>...</teleport>
+
+------------------------------------------------
+
+- style scoped
+--- restrict the component style to itself, so it will not effect the other components
+---- e.g. <style scoped>....</style>
+
+------------------------------------------------

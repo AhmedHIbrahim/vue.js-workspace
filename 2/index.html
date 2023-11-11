@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Basics</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://unpkg.com/vue@next" defer></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+  <header>
+    <h1>Vue Events</h1>
+  </header>
+  <section id="events">
+    <h2>Events in Action</h2>
+    <button v-on:click.right="increment(5)">Add 5:right-clk</button>
+    <button v-on:click.left="decrement(5)">Remove 5:left-clk</button>
+    <button v-on:click="increment(5)">Add 5</button>
+    <button v-on:click="decrement(5)">Remove 5</button>
+    <br />
+    <hr />
+    <p v-once>Starting Counter: {{ counter }}</p>
+    <p>Result: {{ counter }}</p>
+    <hr />
+    <input type="text" v-on:input="setName" v-bind:value="name" v-on:keyup.enter="confirmName" />
+    <input placeholder='name' style="display: none" type='text' v-model="name" />
+    <input placeholder='lastName' :value="lastName" type='text' v-model="lastName" />
+    <p>Your Name: {{ fullName }}</p>
+    <p>Your Confirmed Name: {{ confirmedName }}</p>
+    <button @click="resetName">Reset Name</button>
+    <br />
+    <hr />
+    <br />
+    <input type="text" @input="setNameWithSuffix($event, 'ALP')" />
+    <p>Your Suffixed Name: {{ suffixedName }}</p>
+    
+    <hr />
+    <br />
+    <form v-on:submit="submitForm">
+      <input type="text" />
+      <button>Sign Up</button>
+    </form>
+
+    <form v-on:submit.prevent="submitFormWithModifier">
+      <input type="text" />
+      <button>Sign Up</button>
+    </form>
+  </section>
+</body>
+
+</html>
