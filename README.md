@@ -15,6 +15,6 @@
 - <b>Composition API</b>:<br/> Explored the Composition API as a new way of organizing and structuring components in Vue.js.
 - <b>Reusability Concepts</b>:<br/> Utilized mixins for code reusability and explored the concept of custom hooks or composables.
 - <b>Advanced Vue Techniques</b>:<br/> Learned about asynchronous components, optimizations, and the migration from Options API to Composition API.
-- <b>Vue Project - <b>Coach Finder App</b>:<br/> Applied learned concepts to plan, build, and deploy a real-world Vue.js application for finding coaches.
+- <b>Vue Project - <b>Coach Finder App (in folder 18)</b>:<br/> Applied learned concepts to plan, build, and deploy a real-world Vue.js application for finding coaches.
 - <b>Advanced Vue Concepts</b>:<br/> Explored advanced Vue concepts, including dynamic components, slots, and teleporting elements.
 - <b>Authentication in Vue</b>:<br/> Implemented user authentication using `Firebase`, managing user sessions, and securing routes in Vue.js applications.
