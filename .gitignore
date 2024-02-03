@@ -1,2 +1,3 @@
 /22--composition-with-vuex/node_modules
 node_modules/
+.DS_Store
