@@ -27,65 +27,29 @@
 
 <script>
 import UserItem from "./UserItem.vue";
-import { ref, computed, watch } from "vue";
+import { ref, computed, toRefs } from "vue";
+import useSearch from "../../hooks/search";
+import useSort from "../../hooks/sort";
 
 export default {
   components: {
     UserItem,
   },
   props: ["users"],
-  setup(props, context) {
-    const enteredSearchTerm = ref("");
-    const activeSearchTerm = ref("");
-    const sorting = ref(null);
+  setup(props) {
+    const { users } = toRefs(props);
+    const {
+      enteredSearchTerm,
+      activeSearchTerm,
+      availableItems: availableUsers,
+      updateSearch,
+    } = useSearch(users, "fullName");
 
-    const availableUsers = computed(function () {
-      let users = [];
-      if (activeSearchTerm.value) {
-        users = props.users.filter((usr) =>
-          usr.fullName.includes(activeSearchTerm.value)
-        );
-      } else if (props.users) {
-        users = props.users;
-      }
-      return users;
-    });
-
-    const displayedUsers = computed(function () {
-      if (!sorting.value) {
-        return availableUsers.value;
-      }
-      return availableUsers.value.slice().sort((u1, u2) => {
-        if (sorting.value === "asc" && u1.fullName > u2.fullName) {
-          return 1;
-        } else if (sorting.value === "asc") {
-          return -1;
-        } else if (sorting.value === "desc" && u1.fullName > u2.fullName) {
-          return -1;
-        } else {
-          return 1;
-        }
-      });
-    });
-
-    // methods
-
-    const updateSearch = (val) => {
-      enteredSearchTerm.value = val;
-    };
-    const sort = (mode) => {
-      sorting.value = mode;
-    };
-
-    //watch
-
-    watch(enteredSearchTerm, (newVal) => {
-      setTimeout(() => {
-        if (newVal === enteredSearchTerm.value) {
-          activeSearchTerm.value = newVal;
-        }
-      }, 300);
-    });
+    const {
+      sorting,
+      displayedItems: displayedUsers,
+      sort,
+    } = useSort(availableUsers, "fullName");
 
     return {
       enteredSearchTerm,
