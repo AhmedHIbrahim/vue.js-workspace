@@ -1,4 +1,4 @@
-<h2>My Vue.js Learning Summary</h2>
+<h2>My Vue.js Learning Journey</h2>
 
 - <b>Vue Basics</b>:<br/> Explored Vue.js as a progressive JavaScript framework for building user interfaces, understanding its core concepts, and building apps with JavaScript.
 - <b>Data Binding</b>:<br/> Learned about data binding, interpolation, and how to bind attributes using directives like `v-bind`.
